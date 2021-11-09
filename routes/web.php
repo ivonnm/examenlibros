@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EditController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LibroController;
 use App\Http\Controllers\LibrosController;
 use App\Http\Controllers\ListaController;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',  HomeController::class);
 Route::get('libros', [LibrosController::class, 'index']);
 Route::get('lista', [ListaController::class, 'listado'] );
+
+
+Route::resource('libro', LibroController::class);
+Route::get('libro.edit', [EditController::class, 'editar'] );
